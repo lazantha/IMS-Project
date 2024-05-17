@@ -29,37 +29,73 @@
 
 <div class="container ms-0">
     <div class="list-group p-2 pb-3 ms-0 " id="list-items" >
-      
-
         <div class="container">
           <a href="{{route('admin-dashboard')}}" class="list-group-item list-group-item-action pb-4 mt-3 ">Home</a>
-
         </div>
         <div class="container">
           <h3>Admin Controllers</h3>
+          
           <div class="container">
             <a href="{{route('admin-admins')}}" class="list-group-item list-group-item-action pb-4 mt-3 ">Admins</a>
-          
           </div>
           <div class="container">
-            <a href="{{route('admin-categories')}}" class="list-group-item list-group-item-action pb-4 mt-3 ">Categories</a>
-            <a href="">Category Grid </a>
+            <ul class="nav nav-tabs">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Categories</a>
+
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item list-group-item list-group-item-action pb-4 mt-3 " href="{{route('admin-categories')}}">Update Categories</a></li>
+                  <li><a class="dropdown-item" href="#">Category Grid</a></li>
+               
+                </ul>
+            </ul>
           </div>
           <div class="container">
-            <a href="{{route('admin-departments')}}" class="list-group-item list-group-item-action pb-4 mt-3 ">Departments</a>
-            <a href="">Department Grid</a>
+            <ul class="nav nav-tabs">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Departments</a>
+
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item list-group-item list-group-item-action pb-4 mt-3 " href="{{route('admin-departments')}}">Update Departments</a></li>
+                  <li><a class="dropdown-item" href="#">Department Grid </a></li>
+               
+                </ul>
+            </ul>
           </div>
           <div class="container">
-            <a href="{{route('admin-item_master')}}" class="list-group-item list-group-item-action pb-4 mt-3 ">Item Master</a>
-            <a href="">Item Master Grid</a>
+            <ul class="nav nav-tabs">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Main Master</a>
+
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item list-group-item list-group-item-action pb-4 mt-3 " href="{{route('admin-item_master')}}">Update Items</a></li>
+                  <li><a class="dropdown-item" href="#">Item Grid </a></li>
+               
+                </ul>
+            </ul>
           </div>
           <div class="container">
-            <a href="{{route('admin-item_types')}}" class="list-group-item list-group-item-action pb-4 mt-3 ">Item Types</a>
-            <a href="">Item types Grid</a>
+            <ul class="nav nav-tabs">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Item Types </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item list-group-item list-group-item-action pb-4 mt-3 " href="{{route('admin-item_types')}}">Update Items Types</a></li>
+                  <li><a class="dropdown-item" href="#">Item Type Grid </a></li>
+               
+                </ul>
+            </ul>
           </div>
           <div class="container">
-            <a href="{{route('admin-measurements')}}" class="list-group-item list-group-item-action pb-4 mt-3 ">Measurements</a>
-            <a href="">measurements Grid</a>
+            <ul class="nav nav-tabs">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Measurements</a>
+                
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item list-group-item list-group-item-action pb-4 mt-3 " href="{{route('admin-measurements')}}">Update Measurements Types</a></li>
+                  <li><a class="dropdown-item" href="#">measurements Grid </a></li>
+               
+                </ul>
+            </ul>
           </div>
         </div>
 
