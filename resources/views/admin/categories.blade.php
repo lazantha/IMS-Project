@@ -9,7 +9,7 @@
       </div>
       <div class="col">
         <div class="container mt-4">
-            <h1 class="text-center">Manage Categories</h1>
+            <h1 class="text-center">Make Categories</h1>
             <div class="row mt-4">
                 <div class="col-md-8 offset-md-2">
                     <div class="card">

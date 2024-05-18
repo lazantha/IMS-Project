@@ -10,13 +10,10 @@
       </div>
       <div class="col">
         <div class="container mt-4">
-            <h1 class="text-center">Manage Measurements</h1>
+            <h1 class="text-center">Set Measurements Values</h1>
             <div class="row mt-4">
                 <div class="col-md-8 offset-md-2">
                     <div class="card">
-                        <div class="card-header">
-                            Add Measurement
-                        </div>
                         <div class="card-body">
                             <form action="{{route('post_measurements')}}" method="POST">
                                 @csrf
