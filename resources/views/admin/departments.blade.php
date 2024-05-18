@@ -11,13 +11,11 @@
       <div class="col">
         <div class="p-2 flex-fill">
             <div class="container mt-4">
-                <h1 class="text-center">Manage Departments</h1>
+                <h1 class="text-center">Add Departments</h1>
                 <div class="row mt-4">
                     <div class="col-md-8 offset-md-2">
                         <div class="card">
-                            <div class="card-header">
-                                Add Department
-                            </div>
+
                             <div class="card-body">
                                 <form id="addDepartmentForm" action="{{route('setDepartments')}}" method="POST">
                                     @csrf

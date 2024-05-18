@@ -33,8 +33,6 @@
           <a href="{{route('admin-dashboard')}}" class="list-group-item list-group-item-action pb-4 mt-3 ">Home</a>
         </div>
         <div class="container">
-          <h5> Controllers</h5>
-          
           <div class="container">
             <a href="{{route('admin-admins')}}" class="list-group-item list-group-item-action pb-4 mt-3 ">Admins</a>
           </div>

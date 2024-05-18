@@ -10,13 +10,11 @@
       </div>
       <div class="col-sm-8">
         <div class="container w-auto p-3">
-            <h1 class="text-center">Manage Item Master</h1>
+            <h1 class="text-center">Add An Item </h1>
             <div class="row mt-4">
                 <div class="col-md-10 offset-md-1">
                     <div class="card">
-                        <div class="card-header">
-                            Add Item
-                        </div>
+                
                         <div class="card-body">
                             <form action="{{route('post_item_master')}}" method="POST">
                                 @csrf
