@@ -110,49 +110,6 @@
                             
                         </div>
                     </div>
-        
-                    <!-- Item Master Table -->
-                    <div class="card mt-4">
-                        <div class="card-header">
-                            Item Master
-                        </div>
-                        <div class="card-body">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Item Name</th>
-                                        <th>Item Code</th>
-                                        <th>Quantity</th>
-                                        <th>Manufacturer</th>
-                                        <th>Item Type</th>
-                                        <th>Measurement</th>
-                                        <th>Department</th>
-                                        <th>Disposable</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- Loop through item master records and display here -->
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Pen</td>
-                                        <td>P001</td>
-                                        <td>100</td>
-                                        <td>XYZ Company</td>
-                                        <td>Stationary</td>
-                                        <td>Meter</td>
-                                        <td>Finance</td>
-                                        <td>No</td>
-                                        <td>
-                                            <a href="#" class="btn btn-sm btn-info">Edit</a>
-                                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
