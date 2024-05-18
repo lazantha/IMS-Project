@@ -70,18 +70,9 @@ class AdminController extends Controller
     }
 
     public function categories()
-    {
-        $categories = Category::select('cat_id','category_name','category_code','is_active','is_active')->get();
+    {   
+        return view('admin.categories');
         
-        if($categories->isNotEmpty()){
-
-            return view('admin.categories',compact('categories'));
-        }
-        else{
-            $categories = $categories ?? [];
-            return view('admin.categories',compact('categories'));
-
-        }
         
     }
     public function postCategories(Request $request){
@@ -103,17 +94,7 @@ class AdminController extends Controller
     public function departments()
     {
         
-        $departments = Department::select('dep_id','department')->get();
-
-        if ($departments->isNotEmpty()){
-            
-            return view('admin.departments',compact('departments'));
-        }
-        else{
-            
-            $departments = $departments ?? [];
-            return view('admin.departments',compact('departments'));
-        }
+        return view('admin.departments');
         
     }
 

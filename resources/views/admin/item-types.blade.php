@@ -50,42 +50,6 @@
                             </form>
                         </div>
                     </div>
-        
-                    <!-- Item Types Table -->
-                    <div class="card mt-4">
-                        <div class="card-header">
-                            Item Types
-                        </div>
-                        <div class="card-body">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Type Name</th>
-                                        <th>Type Code</th>
-                                        <th>Status</th>
-                                        <th>Category</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- Loop through item types and display here -->
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Stationary</td>
-                                        <td>ST001</td>
-                                        <td>Active</td>
-                                        <td>Consumable</td>
-                                        
-                                        <td>
-                                            <a href="#" class="btn btn-sm btn-info">Edit</a>
-                                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

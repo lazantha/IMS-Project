@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainPanel;
+use App\Http\Controllers\GridController;
 
 
 
@@ -42,6 +43,18 @@ Route::post('templates/post_item_types', [AdminController::class, 'post_item_typ
 
 Route::get('templates/measurements', [AdminController::class, 'measurements'])->name('admin-measurements');
 Route::post('templates/post_measurements', [AdminController::class, 'post_measurements'])->name('post_measurements');
+
+// grid routes
+Route::get('templates/category_grid', [GridController::class, 'category_grid'])->name('admin-category-grid');
+Route::get('templates/department_grid', [GridController::class, 'department_grid'])->name('admin-department-grid');
+Route::get('templates/item_type_grid', [GridController::class, 'item_type_grid'])->name('admin-item_type-grid');
+Route::get('templates/main_master_grid', [GridController::class, 'main_master_grid'])->name('admin-main_master-grid');
+Route::get('templates/measurement_grid', [GridController::class, 'measurement_grid'])->name('admin-measurement-grid');
+
+
+
+
+
 
 
 
