@@ -10,8 +10,8 @@ use App\Models\ItemType;
 use App\Models\ItemMaster;
 use App\Models\Measurement;
 
-
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -30,13 +30,18 @@ class AdminController extends Controller
         if (Auth::guard('admin')->attempt($credentials)) {
 
             $request->session()->put('email', $request->email);
-            return view('admin.stats');
+            return view('admin.master_view');
             
         } else {
             return redirect()->route('signIn-page')->with('error', 'Check again');
         }
 
     }
+    public function master_view(){
+
+        return  view('admin.master_view');
+    }
+    
 
     public function signUp(Request $request)
 {
@@ -58,10 +63,22 @@ class AdminController extends Controller
         
 }
 
-    public function dashboardView()
+     public function stat_view()
     {
-        return view('admin.stats');
+
+        $adminCount = DB::table('admins')->count('admin_id');
+        $categoryCount=DB::table('categories')->count('cat_id');
+        $departmentCount=DB::table('departments')->count('dep_id');
+        $itemCount=DB::table('item_master')->count('item_master_id');
+        $itemTypeCount=DB::table('item_types')->count('type_id');
+        $measurementsCount=DB::table('measurements')->count('measurement_id');
+
+        return view('admin.stats',compact('adminCount','categoryCount','departmentCount','itemCount','itemTypeCount','measurementsCount'));
+            
+        
+
     }
+    
 
     public function admins()
     {   $admins=Admin::select('admin_id','first_name','last_name','email')->get();

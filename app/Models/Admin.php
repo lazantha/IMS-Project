@@ -38,4 +38,6 @@ class Admin extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    protected $primaryKey = 'admin_id';
+    protected $table = 'admins';
 }

@@ -1,42 +1,25 @@
 <style>
     a:hover{
         color: purple;
-        
-
-
       
       }
       a:active{
         color: black;
-        font-weight: bolder;
-        font-size: 1.2rem;
-
-
       
       }
-      a:focus{
-        
-        color: green;
-        font-size: 1.2rem;
-        
-
-      }
  
-   
-
       
 </style>
 
 <div class="container ms-0">
     <div class="list-group p-2 pb-3 ms-0 " id="list-items" >
         <div class="container">
-          <a href="{{route('admin-dashboard')}}" class="list-group-item list-group-item-action pb-4 mt-3 ">Home</a>
-        </div>
-        <div class="container">
           <div class="container">
+            <a href="{{route('master_view')}}" class="list-group-item list-group-item-action pb-4 mt-3 ">Ho To Start ?</a>
+
+            <a href="{{route('admin-stat')}}" class="list-group-item list-group-item-action pb-4 mt-3 ">Stats</a>
             <a href="{{route('admin-admins')}}" class="list-group-item list-group-item-action pb-4 mt-3 ">Admins</a>
-          </div>
-          <div class="container">
+
             <ul class="nav nav-tabs">
               <li class="nav-item dropdown">
                 <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" onkeypress="return false" onkeydown="return false" onkeyup="return false">Categories</button>

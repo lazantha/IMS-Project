@@ -10,13 +10,16 @@
         </div>
         <div class="col">
             <div class="container mt-4">
-                <h1 class="text-center">Admin Dashboard</h1>
+                <h1 class="text-center">At A Glance</h1>
                 <div class="row mt-4">
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Total Admins</h5>
-                                <h3 class="text-center">20</h3>
+                                <h3 class="text-center">{{$adminCount}}</h3>
+                                
+                                 
+                                 
                             </div>
                         </div>
                     </div>
@@ -24,7 +27,8 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Total Categories</h5>
-                                <h3 class="text-center">8</h3>
+                                <h3 class="text-center">{{$categoryCount}}</h3>
+                                
                             </div>
                         </div>
                     </div>
@@ -32,7 +36,8 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Total Departments</h5>
-                                <h3 class="text-center">12</h3>
+                                <h3 class="text-center">{{$departmentCount}}</h3>
+                                
                             </div>
                         </div>
                     </div>
@@ -42,7 +47,8 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Total Items</h5>
-                                <h3 class="text-center">150</h3>
+                                <h3 class="text-center">{{$itemCount}}</h3>
+                                
                             </div>
                         </div>
                     </div>
@@ -50,7 +56,8 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Total Item Types</h5>
-                                <h3 class="text-center">10</h3>
+                                <h3 class="text-center">{{$itemTypeCount}}</h3>
+                                
                             </div>
                         </div>
                     </div>
@@ -58,7 +65,8 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Total Measurements</h5>
-                                <h3 class="text-center">5</h3>
+                                <h3 class="text-center">{{$measurementsCount}}</h3>
+                                
                             </div>
                         </div>
                     </div>

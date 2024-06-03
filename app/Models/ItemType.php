@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ItemType extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'ItemType';
+    protected $table = 'item_types';
+    
 }
