@@ -9,26 +9,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <title>@yield('title')</title>
     <style>
-      a:hover{
-        color: purple;
-        
+      .disable-pseudo-classes {
+        all: initial;
+        }
 
-
-      
-      }
-      a:active{
-        color: black;
-        font-weight: bolder;
-        
-
-      
-      }
-      a:focus{
-        
-        color: green;
-
-      
-      }
       
       
     </style>

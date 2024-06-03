@@ -25,7 +25,9 @@ Route::post('templates/signIn', [AdminController::class, 'signIn'])->name('signI
 
 
 // admin pages
-Route::get('templates/dashboard', [AdminController::class, 'dashboardView'])->name('admin-dashboard');
+Route::get('templates/dashboard', [AdminController::class, 'stat_view'])->name('admin-stat');
+Route::get('templates/master_view', [AdminController::class, 'master_view'])->name('master_view');
+
 Route::get('templates/admins', [AdminController::class, 'admins'])->name('admin-admins');
 
 Route::get('templates/categories', [AdminController::class, 'categories'])->name('admin-categories');
@@ -50,6 +52,23 @@ Route::get('templates/department_grid', [GridController::class, 'department_grid
 Route::get('templates/item_type_grid', [GridController::class, 'item_type_grid'])->name('admin-item_type-grid');
 Route::get('templates/main_master_grid', [GridController::class, 'main_master_grid'])->name('admin-main_master-grid');
 Route::get('templates/measurement_grid', [GridController::class, 'measurement_grid'])->name('admin-measurement-grid');
+
+// edit routes
+Route::get('templates/edit_category/{cat_id}', [GridController::class, 'edit_category'])->name('edit_category');
+Route::put('templates/update_category/{cat_id}', [GridController::class, 'update_category'])->name('update_category');
+
+Route::get('templates/edit_department/{dep_id}', [GridController::class, 'edit_department'])->name('edit_department');
+Route::put('templates/update_department/{dep_id}', [GridController::class, 'update_department'])->name('update_department');
+
+Route::get('templates/edit_item/{item_id}', [GridController::class, 'edit_item'])->name('edit_item');
+Route::put('templates/update_item/{item_id}', [GridController::class, 'update_item'])->name('update_item');
+
+//delete routes
+Route::get('templates/delete_category/{cat_id}', [GridController::class, 'delete_category'])->name('delete_category');
+Route::get('templates/delete_department/{cat_id}', [GridController::class, 'delete_department'])->name('delete_department');
+Route::get('templates/delete_item/{item_id}', [GridController::class, 'delete_item'])->name('delete_item');
+
+
 
 
 
