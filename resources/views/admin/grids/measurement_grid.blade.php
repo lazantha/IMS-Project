@@ -24,22 +24,24 @@
                                         <th>ID</th>
                                         <th>Measurement Name</th>
                                         <th>Measurement Code</th>
-                                        <th>Status</th>
+                                        <th>Is Active</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- Loop through measurements and display here -->
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Meter</td>
-                                        <td>m</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <a href="#" class="text-primary">Edit</a>
-                                            <a href="#" class="text-danger">Delete</a>
-                                        </td>
-                                    </tr>
+                                    @foreach ($measurements as $measurement )
+                                            <tr>
+                                                <td>{{$measurement->measurement_id}}</td>
+                                                <td>{{$measurement->name}}</td>
+                                                <td>{{$measurement->code}}</td>
+                                                <td>{{$measurement->is_active ? 'Yes' : 'No' }}</td>
+                                                <td>
+                                                    <a href="#" class="text-primary">Edit</a>
+                                                    <a href="#" class="text-danger">Delete</a>
+                                                </td>   
+                                            </tr>         
+                                     @endforeach
+                               
                                 </tbody>
                             </table>
                         </div>

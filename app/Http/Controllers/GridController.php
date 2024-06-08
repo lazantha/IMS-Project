@@ -5,6 +5,8 @@ use App\Models\Category;
 use App\Models\Department;
 use App\Models\ItemMaster;
 use App\Models\ItemType;
+use App\Models\Measurement;
+
 
 
 use Illuminate\Http\Request;
@@ -61,7 +63,9 @@ class GridController extends Controller
     }
     public function measurement_grid(){
 
-        return view('admin.grids.measurement_grid');
+        $measurements = Measurement::select('measurement_id', 'name','code', 'is_active')->get();
+        
+        return view('admin.grids.measurement_grid',compact('measurements'));
 
     }
     
