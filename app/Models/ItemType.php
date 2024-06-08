@@ -11,4 +11,8 @@ class ItemType extends Model
     protected $primaryKey = 'ItemType';
     protected $table = 'item_types';
     
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'cat_id');
+    }
 }

@@ -50,8 +50,8 @@
                                             <td>{{ $item->is_disposable ? 'Yes' : 'No' }}</td>
                                             <td>{{ $item->is_active ? 'Yes' : 'No' }}</td>
                                             <td>
-                                                <a href="{{route('edit_item',$item->item_master_id)}}" class="btn btn-sm btn-primary">Edit</a>
-                                                <a href="{{route('delete_item',$item->item_master_id)}}" class="btn btn-sm btn-danger">Remove</a>
+                                                <a href="{{route('edit_item',$item->item_master_id)}}" class="text-primary">Edit</a>
+                                                <a href="{{route('delete_item',$item->item_master_id)}}" class="text-danger">Remove</a>
                                             </td>
                                         </tr>
                                     @endforeach

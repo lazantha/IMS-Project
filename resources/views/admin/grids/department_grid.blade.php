@@ -34,8 +34,8 @@
                                             <td>{{$department->dep_id}}</td>
                                             <td>{{$department->department}}</td>
                                             <td>
-                                                <a href="{{route('edit_department',$department->dep_id)}}" class="btn btn-sm btn-info">Edit</a>
-                                                <a href="{{route('delete_department',$department->dep_id)}}" class="btn btn-sm btn-danger">Delete</a>
+                                                <a href="{{route('edit_department',$department->dep_id)}}" class="text-primary">Edit</a>
+                                                <a href="{{route('delete_department',$department->dep_id)}}" class="text-danger">Delete</a>
                                             </td>
                                         </tr>
                                         @endforeach

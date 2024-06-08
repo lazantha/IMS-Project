@@ -24,13 +24,24 @@
                                         <th>ID</th>
                                         <th>Type Name</th>
                                         <th>Type Code</th>
-                                        <th>Status</th>
+                                        <th>Is Active</th>
                                         <th>Category</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- Loop through item types and display here -->
+                                    @foreach ($itemTypes as $itemType)
+                                    <tr>
+                                        <td>{{ $itemType->type_id }}</td>
+                                        <td>{{ $itemType->type_name }}</td>
+                                        <td>{{ $itemType->type_code }}</td>
+                                        <td>{{ $itemType->is_active ? 'Yes' : 'No' }}</td>
+                                        <td>{{ $itemType->category_name }}</td>
+                                        <td><a href="" class="text-primary ">Edit</a>
+                                            <a href="" class="text-danger ">Delete</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                                     
                                 </tbody>
                             </table>

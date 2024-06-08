@@ -12,7 +12,7 @@ use App\Http\Controllers\GridController;
 
 
 
-Route::get('templates/', [HomeController::class, 'home'])->name('home-page');
+Route::get('/', [HomeController::class, 'home'])->name('home-page');
 Route::get('templates/contact', [ContactController::class, 'contact'])->name('contact-page');
 Route::get('templates/about', [AboutController::class, 'about'])->name('about-page');
 

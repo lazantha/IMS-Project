@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Department;
 use App\Models\ItemMaster;
+use App\Models\ItemType;
 
 
 use Illuminate\Http\Request;
@@ -46,8 +47,8 @@ class GridController extends Controller
     
     public function item_type_grid(){
 
-        
-        return view('admin.grids.item_type_grid');
+        $itemTypes = ItemType::select('item_types.type_id', 'item_types.type_code', 'item_types.type_name', 'item_types.is_active', 'categories.category_name')->join('categories', 'item_types.category_id', '=', 'categories.cat_id')->get();
+        return view('admin.grids.item_type_grid',compact('itemTypes'));
 
     }
 

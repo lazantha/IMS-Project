@@ -36,8 +36,8 @@
                                         <td>m</td>
                                         <td>Active</td>
                                         <td>
-                                            <a href="#" class="btn btn-sm btn-info">Edit</a>
-                                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                            <a href="#" class="text-primary">Edit</a>
+                                            <a href="#" class="text-danger">Delete</a>
                                         </td>
                                     </tr>
                                 </tbody>
