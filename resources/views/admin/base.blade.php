@@ -85,8 +85,10 @@
                 </ul>
             </ul>
           </div>
+
         </div>
 
+            <a href="{{route('reports-view')}}" id="get_start_link" class="list-group-item list-group-item-action pb-4 mt-3 ">Get Reports</a>
         
     </div>
     <div class="content">

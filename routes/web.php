@@ -8,8 +8,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainPanel;
 use App\Http\Controllers\GridController;
-
-
+use App\Http\Controllers\ReportController;
 
 
 Route::get('/', [HomeController::class, 'home'])->name('home-page');
@@ -68,6 +67,8 @@ Route::get('templates/delete_category/{cat_id}', [GridController::class, 'delete
 Route::get('templates/delete_department/{cat_id}', [GridController::class, 'delete_department'])->name('delete_department');
 Route::get('templates/delete_item/{item_id}', [GridController::class, 'delete_item'])->name('delete_item');
 
+// reports
+Route::get('templates/reports', [ReportController::class, 'reportsView'])->name('reports-view');
 
 
 
