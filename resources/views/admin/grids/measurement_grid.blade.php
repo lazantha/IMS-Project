@@ -14,7 +14,7 @@
                 <div class="col-md-8 offset-md-2">
         
                     <div class="card mt-4">
-                        <div class="card-header">
+                        <div class="card-header shadow">
                             Measurements
                         </div>
                         <div class="card-body">

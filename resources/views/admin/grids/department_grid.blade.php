@@ -14,7 +14,7 @@
                 <div class="row mt-4">
                     <div class="col-md-8 offset-md-2">
                         <!-- Departments Table -->
-                        <div class="card mt-4">
+                        <div class="card mt-4 shadow">
                             <div class="card-header">
                                 Departments
                             </div>

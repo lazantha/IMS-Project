@@ -17,7 +17,7 @@
                     <div class="card-header">
                         Item Master
                     </div>
-                    <div class="card-body">
+                    <div class="card-body shadow">
                         <div class="table-responsive">
                             <table class="table table-bordered">
                                 <thead class="thead-light">

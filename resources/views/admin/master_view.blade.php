@@ -10,10 +10,10 @@
       <div class="col">
         <div class="container mt-5">
           <div class="card">
-              <div class="card-header bg-primary text-white">
-                  <h2>Welcome to Inventory Management System</h2>
+              <div class="card-header">
+                  <h2 class="fs-2 fw-bold">Welcome to Inventory Management System </h2>
               </div>
-              <div class="card-body">
+              <div class="card-body shadow">
                   <h4>Step-by-Step Guide</h4>
                   <p>Welcome to our Inventory Management System. Follow the steps below to get started:</p>
                   <ol>

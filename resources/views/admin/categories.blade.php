@@ -8,7 +8,7 @@
        @include('admin.base')
       </div>
       <div class="col">
-        <div class="container mt-4">
+        <div class="container mt-4 ">
             <h1 class="text-center">Make Categories</h1>
             <div class="row mt-4">
                 <div class="col-md-8 offset-md-2">
@@ -16,7 +16,7 @@
                         <div class="card-header">
                             Add Category
                         </div>
-                        <div class="card-body">
+                        <div class="card-body shadow">
                             <form action="{{route('postCategories')}}" method="POST">
                                 @csrf
                                 <div class="form-group">

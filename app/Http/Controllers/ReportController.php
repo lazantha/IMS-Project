@@ -55,6 +55,7 @@ class ReportController extends Controller
         ->select('item_master.*', 'item_types.type_name', 'measurements.name as measurement', 'departments.department', 'admins.first_name', 'admins.last_name')
         ->get();
 
+    
 
         return view('admin.reports.reportsView', compact('itemTypeActivity',
         'categoryWiseInventory',
@@ -62,6 +63,7 @@ class ReportController extends Controller
         'departmentWiseInventory',
         'disposableItems',
         'detailedItems'));
+
 
     }
 }

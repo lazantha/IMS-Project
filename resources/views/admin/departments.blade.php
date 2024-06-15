@@ -16,7 +16,7 @@
                     <div class="col-md-8 offset-md-2">
                         <div class="card">
 
-                            <div class="card-body">
+                            <div class="card-body shadow">
                                 <form id="addDepartmentForm" action="{{route('setDepartments')}}" method="POST">
                                     @csrf
                                     <div class="form-group">

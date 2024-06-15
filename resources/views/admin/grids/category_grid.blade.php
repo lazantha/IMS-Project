@@ -16,7 +16,7 @@
                         <div class="card-header">
                             Categories
                         </div>
-                        <div class="card-body">
+                        <div class="card-body shadow">
                             <table class="table">
                                 <thead>
                                     <tr>

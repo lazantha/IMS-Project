@@ -15,7 +15,7 @@
                 <div class="col-md-10 offset-md-1">
                     <div class="card">
                 
-                        <div class="card-body">
+                        <div class="card-body shadow">
                             <form action="{{route('post_item_master')}}" method="POST">
                                 @csrf
                                 
