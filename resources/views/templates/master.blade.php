@@ -34,7 +34,7 @@
                   </li>
                   <li class="nav-item">
                       {{-- sign in link --}}
-                      <a class="nav-link active" aria-current="page" href="{{route('signIn-page')}}">Sign In</a>
+                      <a class="nav-link active" aria-current="page" href="{{route('login')}}">Sign In</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link " href="{{route('about-page')}}">About Us</a>

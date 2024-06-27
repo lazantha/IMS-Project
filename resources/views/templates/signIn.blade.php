@@ -5,7 +5,7 @@
 <div class="container mt-4 ">
     <div class="row justify-content-center">
         <div class="col-lg-6">
-            <form class="card p-4 shadow " action="{{route('signIn')}}" method="POST">
+            <form class="card p-4 shadow " action="{{route('login.post')}}" method="POST">
                 @csrf
                 <h2 class="text-center mb-4">Login</h2>
                 <div class="mb-3">
@@ -20,7 +20,7 @@
                     {{-- <label class="form-check-label" for="exampleCheck1">Remember me</label> --}}
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Login</button>
-                <a href="{{route('signUp-page')}}" class="text-decoration-none">Dont Have An Account ?</a>
+                <a href="{{route('register')}}" class="text-decoration-none">Dont Have An Account ?</a>
             </form>
         </div>
     </div>

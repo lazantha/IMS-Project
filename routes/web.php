@@ -17,32 +17,26 @@ Route::get('templates/contact', [ContactController::class, 'contact'])->name('co
 Route::get('templates/about', [AboutController::class, 'about'])->name('about-page');
 
 
-Route::get('templates/register', [AdminController::class, 'signUpPage'])->name('signUp-page');
-Route::get('templates/log', [AdminController::class, 'signInPage'])->name('signIn-page');
+Route::get('templates/register', [AdminController::class, 'register'])->name('register');
+Route::get('templates/log', [AdminController::class, 'login'])->name('login');
 
-Route::post('templates/signUp', [AdminController::class, 'signUp'])->name('signUp');
-Route::post('templates/signIn', [AdminController::class, 'signIn'])->name('signIn');
+Route::post('templates/login.post', [AdminController::class, 'login_post'])->name('login.post');
+Route::post('templates/register.post', [AdminController::class, 'register_post'])->name('register.post');
 
 
 // admin pages
+
 Route::get('templates/dashboard', [AdminController::class, 'stat_view'])->name('admin-stat');
 Route::get('templates/master_view', [AdminController::class, 'master_view'])->name('master_view');
-
 Route::get('templates/admins', [AdminController::class, 'admins'])->name('admin-admins');
-
 Route::get('templates/categories', [AdminController::class, 'categories'])->name('admin-categories');
 Route::post('templates/postCategories', [AdminController::class, 'postCategories'])->name('postCategories');
-
-
 Route::get('templates/departments', [AdminController::class, 'departments'])->name('admin-departments');
 Route::post('templates/setDepartments', [AdminController::class, 'setDepartments'])->name('setDepartments');
-
 Route::get('templates/item_master', [AdminController::class, 'item_master'])->name('admin-item_master');
 Route::post('templates/post_item_master', [AdminController::class, 'post_item_master'])->name('post_item_master');
-
 Route::get('templates/item_types', [AdminController::class, 'item_types'])->name('admin-item_types');
 Route::post('templates/post_item_types', [AdminController::class, 'post_item_types'])->name('post_item_types');
-
 Route::get('templates/measurements', [AdminController::class, 'measurements'])->name('admin-measurements');
 Route::post('templates/post_measurements', [AdminController::class, 'post_measurements'])->name('post_measurements');
 
@@ -72,6 +66,7 @@ Route::get('templates/delete_item/{item_id}', [GridController::class, 'delete_it
 Route::get('templates/reports', [ReportController::class, 'reportsView'])->name('reports-view');
 //print
 Route::get('templates/report_print', [PDFController::class, 'printPdf'])->name('report-print');
+
 
 
 

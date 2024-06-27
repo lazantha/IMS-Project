@@ -15,15 +15,15 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
-
-    public function signInPage(){
+    
+    public function login(){
         return view('templates.signIn');
     }
-    public function signUpPage(){
+    public function register(){
         return view('templates.signUp');
     }
     
-    public function signIn(Request $request)
+    public function login_post(Request $request)
     {
         $credentials = $request->only('email', 'password');
         
@@ -33,17 +33,18 @@ class AdminController extends Controller
             return view('admin.master_view');
             
         } else {
-            return redirect()->route('signIn-page')->with('error', 'Check again');
+            return redirect()->route('log')->with('error', 'Check again');
         }
 
     }
     public function master_view(){
-
+    
+        
         return  view('admin.master_view');
     }
     
 
-    public function signUp(Request $request)
+    public function register_post(Request $request)
 {
     $new_admin = new Admin();
     $password = $request->password;
@@ -56,15 +57,16 @@ class AdminController extends Controller
         $new_admin->password = bcrypt($request->password);
         $new_admin->save();
         
-        return redirect()->route('signIn-page')->with('success', 'Registered successfully!');
+        return redirect()->route('login')->with('success', 'Registered successfully!');
     } else {
-        return redirect()->route('signUp-page')->with('error', 'Passwords mismatched!');
+        return redirect()->route('register')->with('error', 'Passwords mismatched!');
     }
         
 }
 
      public function stat_view()
     {
+       
 
         $adminCount = DB::table('admins')->count('admin_id');
         $categoryCount=DB::table('categories')->count('cat_id');
@@ -88,11 +90,15 @@ class AdminController extends Controller
 
     public function categories()
     {   
+       
         return view('admin.categories');
         
         
     }
     public function postCategories(Request $request){
+
+       
+        
 
         $new_category=new Category();
         $new_category->category_name=$request->categoryName;
@@ -110,6 +116,8 @@ class AdminController extends Controller
 
     public function departments()
     {
+       
+        
         
         return view('admin.departments');
         
@@ -117,6 +125,7 @@ class AdminController extends Controller
 
     public function setDepartments(Request $request)
     {
+      
 
         $new_department=new Department();
         $new_department->department=$request->departmentName;
@@ -128,6 +137,9 @@ class AdminController extends Controller
     
     public function item_master()
     {
+        
+
+        
         $departments=Department::select('department')->get();
         $measurement_codes=Measurement::select('code')->get();
         $item_types=ItemType::select('type_name')->get();
@@ -172,6 +184,8 @@ class AdminController extends Controller
 
     public function item_types()
     {
+        
+        
         $item_categories=Category::select('category_name')->get();
 
         return view('admin.item-types',['item_categories'=>$item_categories]);
@@ -194,6 +208,8 @@ class AdminController extends Controller
 
     public function measurements()
     {
+       
+        
         return view('admin.measurements');
     }
 
