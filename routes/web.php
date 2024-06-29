@@ -18,7 +18,7 @@ Route::get('templates/about', [AboutController::class, 'about'])->name('about-pa
 
 
 Route::get('templates/register', [AdminController::class, 'register'])->name('register');
-Route::get('templates/log', [AdminController::class, 'login'])->name('login');
+Route::get('templates/login', [AdminController::class, 'login'])->name('login');
 
 Route::post('templates/login.post', [AdminController::class, 'login_post'])->name('login.post');
 Route::post('templates/register.post', [AdminController::class, 'register_post'])->name('register.post');
@@ -26,8 +26,8 @@ Route::post('templates/register.post', [AdminController::class, 'register_post']
 
 // admin pages
 
-Route::get('templates/dashboard', [AdminController::class, 'stat_view'])->name('admin-stat');
-Route::get('templates/master_view', [AdminController::class, 'master_view'])->name('master_view');
+Route::get('templates/dashboard', [AdminController::class, 'stat_view'])->name('admin-stat')->middleware('custom.url.protection');
+Route::get('templates/master_view', [AdminController::class, 'master_view'])->name('master_view')->middleware('custom.url.protection');
 Route::get('templates/admins', [AdminController::class, 'admins'])->name('admin-admins');
 Route::get('templates/categories', [AdminController::class, 'categories'])->name('admin-categories');
 Route::post('templates/postCategories', [AdminController::class, 'postCategories'])->name('postCategories');

@@ -15,6 +15,17 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        // Apply protection to all methods except index, login, and logout
+        $unprotectedRoutes = ['login', 'register', 'login_post', 'register_post'];
+        if (!in_array(request()->route()->getActionMethod(), $unprotectedRoutes)) {
+            if (!request()->is('admin/*')) {
+                
+                return redirect()->route('login')->send();
+            }
+        }
+    }
     
     public function login(){
         return view('templates.signIn');
