@@ -36,9 +36,14 @@
   <div class="list-group p-2 pb-3 ms-0" id="list-items">
       <div class="container">
           <div class="container">
+            <a href="{{route('logout')}}" id="get_start_link" class="list-group-item list-group-item-action pb-4 mt-3">
+                <i class="sidebar-icon bi bi-play-circle"></i>Log Out
+            </a>
+            
               <a href="{{route('master_view')}}" id="get_start_link" class="list-group-item list-group-item-action pb-4 mt-3">
                   <i class="sidebar-icon bi bi-play-circle"></i>How To Get Start?
               </a>
+
               <a href="{{route('admin-stat')}}" id="stat_link" class="list-group-item list-group-item-action pb-4 mt-3">
                   <i class="sidebar-icon bi bi-bar-chart-line"></i>Statistics
               </a>

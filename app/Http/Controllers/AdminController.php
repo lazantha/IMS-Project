@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Models\Department;
 use App\Models\Admin;
@@ -17,15 +18,25 @@ class AdminController extends Controller
 {
     public function __construct()
     {
-        // Apply protection to all methods except index, login, and logout
-        $unprotectedRoutes = ['login', 'register', 'login_post', 'register_post'];
-        if (!in_array(request()->route()->getActionMethod(), $unprotectedRoutes)) {
-            if (!request()->is('admin/*')) {
-                
-                return redirect()->route('login')->send();
+        // Apply protection to all methods except index, login, register, login_post, register_post, and logout
+        $unprotectedRoutes = ['index', 'login', 'register', 'login_post', 'register_post', 'logout'];
+
+        $route = request()->route();
+        if ($route) {
+            $actionMethod = $route->getActionMethod();
+            if (!in_array($actionMethod, $unprotectedRoutes)) {
+                if (!request()->is('admin/*')) {
+                    return redirect()->route('login')->send();
+                }
             }
         }
     }
+    public function logout(){
+
+        Session::flush();
+        return redirect()->route('login');
+    }
+
     
     public function login(){
         return view('templates.signIn');

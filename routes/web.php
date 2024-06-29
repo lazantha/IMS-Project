@@ -23,6 +23,7 @@ Route::get('templates/login', [AdminController::class, 'login'])->name('login');
 Route::post('templates/login.post', [AdminController::class, 'login_post'])->name('login.post');
 Route::post('templates/register.post', [AdminController::class, 'register_post'])->name('register.post');
 
+Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
 
 // admin pages
 
