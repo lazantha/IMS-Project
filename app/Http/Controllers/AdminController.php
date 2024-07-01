@@ -16,34 +16,56 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
-    public function __construct()
+    
+    // public function __construct()
+    // {
+    //     // Apply protection to all methods except index, login, register, login_post, register_post, and logout
+    //     $unprotectedRoutes = ['index', 'login', 'register', 'login_post', 'register_post', 'logout'];
+    //     $route = request()->route();
+    //     if ($route) {
+    //         $actionMethod = $route->getActionMethod();
+    //         if (!in_array($actionMethod, $unprotectedRoutes)) {
+    //             if (!request()->is('admin/*')) {
+    //                 return redirect()->route('login')->send();
+    //             }
+    //         }
+    //     }
+    // }
+    public function logout()
     {
-        // Apply protection to all methods except index, login, register, login_post, register_post, and logout
-        $unprotectedRoutes = ['index', 'login', 'register', 'login_post', 'register_post', 'logout'];
-
-        $route = request()->route();
-        if ($route) {
-            $actionMethod = $route->getActionMethod();
-            if (!in_array($actionMethod, $unprotectedRoutes)) {
-                if (!request()->is('admin/*')) {
-                    return redirect()->route('login')->send();
-                }
-            }
-        }
-    }
-    public function logout(){
-
         Session::flush();
+        if (!Session::has('email')) {
+            logger('Session cleared successfully');
+        } else {
+            logger('Session not cleared');
+        }
         return redirect()->route('login');
     }
+    
 
     
-    public function login(){
+    public function login()
+{
+    if (Session::has('email')) {
+        logger('Session found, redirecting to master_view');
+        return redirect()->route('master_view')->with('error', 'Already logged in');
+    } else {
+        logger('No session found, showing login view');
         return view('templates.signIn');
     }
-    public function register(){
+}
+
+public function register()
+{
+    if (!Session::has('email')) {
+        logger('No session found, showing register view');
         return view('templates.signUp');
+    } else {
+        logger('Session found, redirecting to master_view');
+        return redirect()->route('master_view')->with('error', 'Already logged in');
     }
+}
+    
     
     public function login_post(Request $request)
     {
@@ -60,9 +82,16 @@ class AdminController extends Controller
 
     }
     public function master_view(){
-    
+        if (Session::has('email')) {
+
+            return  view('admin.master_view');
+            
+        }else{
+            return redirect()->route('login')->with('error', 'Please Log In');
+
+        }
+
         
-        return  view('admin.master_view');
     }
     
 
@@ -88,39 +117,52 @@ class AdminController extends Controller
 
      public function stat_view()
     {
-       
+        if (Session::has('email')) {
 
-        $adminCount = DB::table('admins')->count('admin_id');
-        $categoryCount=DB::table('categories')->count('cat_id');
-        $departmentCount=DB::table('departments')->count('dep_id');
-        $itemCount=DB::table('item_master')->count('item_master_id');
-        $itemTypeCount=DB::table('item_types')->count('type_id');
-        $measurementsCount=DB::table('measurements')->count('measurement_id');
-
-        return view('admin.stats',compact('adminCount','categoryCount','departmentCount','itemCount','itemTypeCount','measurementsCount'));
+            $adminCount = DB::table('admins')->count('admin_id');
+            $categoryCount=DB::table('categories')->count('cat_id');
+            $departmentCount=DB::table('departments')->count('dep_id');
+            $itemCount=DB::table('item_master')->count('item_master_id');
+            $itemTypeCount=DB::table('item_types')->count('type_id');
+            $measurementsCount=DB::table('measurements')->count('measurement_id');
+    
+            return view('admin.stats',compact('adminCount','categoryCount','departmentCount','itemCount','itemTypeCount','measurementsCount'));
             
-        
+        }else{
+            return redirect()->route('login')->with('error', 'Please Log In');
+
+        }
 
     }
     
 
     public function admins()
-    {   $admins=Admin::select('admin_id','first_name','last_name','email')->get();
-        
-        return view('admin.admins',['admins'=>$admins]);
+    {   
+        if (Session::has('email')) {
+
+            $admins=Admin::select('admin_id','first_name','last_name','email')->get();    
+            return view('admin.admins',['admins'=>$admins]);
+            
+        }else{
+
+            return redirect()->route('login')->with('error', 'Please Log In');
+
+        }
     }
 
     public function categories()
     {   
-       
-        return view('admin.categories');
+       if (Session::has('email')) {
+            return view('admin.categories');
+       }else{
+            return redirect()->route('login')->with('error', 'Please Log In');
+
+       }
         
         
     }
     public function postCategories(Request $request){
 
-       
-        
 
         $new_category=new Category();
         $new_category->category_name=$request->categoryName;
@@ -131,23 +173,22 @@ class AdminController extends Controller
         }else{
             return redirect('templates/categories')->with('error','category not added');
         }
-
-        
     }
 
 
     public function departments()
     {
-       
-        
-        
-        return view('admin.departments');
+        if (Session::has('email')) {
+            return view('admin.departments');
+        }else{
+            return redirect()->route('login')->with('error', 'Please Log In');
+
+        }
         
     }
 
     public function setDepartments(Request $request)
     {
-      
 
         $new_department=new Department();
         $new_department->department=$request->departmentName;
@@ -160,18 +201,20 @@ class AdminController extends Controller
     public function item_master()
     {
         
+        if (Session::has('email')) {
+            $departments=Department::select('department')->get();
+            $measurement_codes=Measurement::select('code')->get();
+            $item_types=ItemType::select('type_name')->get();
+            
+            return view('admin.item-master',[
+                'departments' => $departments,
+                'measurement_codes' => $measurement_codes,
+                'item_types' => $item_types
+            ]);
+        }else{
+            return redirect()->route('login')->with('error', 'Please Log In');
 
-        
-        $departments=Department::select('department')->get();
-        $measurement_codes=Measurement::select('code')->get();
-        $item_types=ItemType::select('type_name')->get();
-        
-        return view('admin.item-master',[
-            'departments' => $departments,
-            'measurement_codes' => $measurement_codes,
-            'item_types' => $item_types
-        ]);
-
+        }
     }
     public function post_item_master(Request $request)
     {
@@ -206,11 +249,15 @@ class AdminController extends Controller
 
     public function item_types()
     {
-        
-        
-        $item_categories=Category::select('category_name')->get();
+        if (Session::has('email')) {
+            
+            $item_categories=Category::select('category_name')->get();
 
-        return view('admin.item-types',['item_categories'=>$item_categories]);
+            return view('admin.item-types',['item_categories'=>$item_categories]);
+        }else{
+            return redirect()->route('login')->with('error', 'Please Log In');
+
+        }
     }
 
     public function post_item_types(Request $request){
@@ -230,9 +277,13 @@ class AdminController extends Controller
 
     public function measurements()
     {
-       
+        if (Session::has('email')) {
         
-        return view('admin.measurements');
+            return view('admin.measurements');
+        }else{
+            return redirect()->route('login')->with('error', 'Please Log In');
+
+        }
     }
 
     public function post_measurements(Request $request){

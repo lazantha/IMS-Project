@@ -27,8 +27,8 @@ Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
 
 // admin pages
 
-Route::get('templates/dashboard', [AdminController::class, 'stat_view'])->name('admin-stat')->middleware('custom.url.protection');
-Route::get('templates/master_view', [AdminController::class, 'master_view'])->name('master_view')->middleware('custom.url.protection');
+Route::get('templates/dashboard', [AdminController::class, 'stat_view'])->name('admin-stat');
+Route::get('templates/master_view', [AdminController::class, 'master_view'])->name('master_view');
 Route::get('templates/admins', [AdminController::class, 'admins'])->name('admin-admins');
 Route::get('templates/categories', [AdminController::class, 'categories'])->name('admin-categories');
 Route::post('templates/postCategories', [AdminController::class, 'postCategories'])->name('postCategories');
