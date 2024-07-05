@@ -15,4 +15,8 @@ class ItemType extends Model
     {
         return $this->belongsTo(Category::class, 'category_id', 'cat_id');
     }
+    public function itemMaster()
+    {
+        return $this->hasMany(ItemMaster::class, 'item_type_id', 'type_id');
+    }
 }

@@ -31,6 +31,4 @@ class ItemMaster extends Model
         return $this->belongsTo(Department::class, 'dep_id', 'dep_id');
     }
 
-
-
 }

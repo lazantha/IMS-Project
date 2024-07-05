@@ -125,8 +125,21 @@ public function register()
             $itemCount=DB::table('item_master')->count('item_master_id');
             $itemTypeCount=DB::table('item_types')->count('type_id');
             $measurementsCount=DB::table('measurements')->count('measurement_id');
-    
-            return view('admin.stats',compact('adminCount','categoryCount','departmentCount','itemCount','itemTypeCount','measurementsCount'));
+            $averageQuantities = ItemType::with('itemMaster')
+            ->select('item_types.type_name', DB::raw('AVG(item_master.quantity) as average_quantity'))
+            ->join('item_master', 'item_types.type_id', '=', 'item_master.item_type_id')
+            ->groupBy('item_types.type_name')
+            ->get();
+            $totalDisposableQuantity = ItemMaster::where('is_disposable', 1)
+             ->sum('quantity');
+
+
+            return view('admin.stats',compact('adminCount',
+                        'categoryCount',
+                        'departmentCount',
+                        'itemCount',
+                        'itemTypeCount',
+                        'measurementsCount','averageQuantities','totalDisposableQuantity'));
             
         }else{
             return redirect()->route('login')->with('error', 'Please Log In');

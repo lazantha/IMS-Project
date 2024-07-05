@@ -76,7 +76,12 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Average Quantity per Item Type</h5>
-                                <h3 class="text-center">25</h3>
+                                @foreach($averageQuantities as $averageQuantity)
+                                <div class="item-type">
+                                    <h6>{{ $averageQuantity->type_name }}</h6>
+                                    <h3 class="text-center">{{ $averageQuantity->average_quantity }}</h3>
+                                </div>
+                            @endforeach
                             </div>
                         </div>
                     </div>
@@ -84,7 +89,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Total Quantity of Disposable Items</h5>
-                                <h3 class="text-center">500</h3>
+                                <h3 class="text-center">{{$totalDisposableQuantity}}</h3>
                             </div>
                         </div>
                     </div>
