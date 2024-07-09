@@ -9,7 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainPanel;
 use App\Http\Controllers\GridController;
 use App\Http\Controllers\ReportController;
-use App\Http\Controllers\PDFController;
+use App\Http\Controllers\PrintController;
 
 
 Route::get('/', [HomeController::class, 'home'])->name('home-page');
@@ -66,18 +66,4 @@ Route::get('templates/delete_item/{item_id}', [GridController::class, 'delete_it
 // reports
 Route::get('templates/reports', [ReportController::class, 'reportsView'])->name('reports-view');
 //print
-Route::get('templates/report_print', [PDFController::class, 'printPdf'])->name('report-print');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Route::get('templates/print', [PrintController::class, 'print'])->name('print');

@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ReportController extends Controller
+class PrintController extends Controller
 {
-    public function reportsView(){
+    public function print(){
         // Inventory Summary Report
         set_time_limit(60);
         $inventorySummary = \DB::table('item_master')
@@ -58,7 +58,7 @@ class ReportController extends Controller
 
     
 
-        return view('admin.reports.reportsView', compact('itemTypeActivity',
+        return view('admin.reports.print', compact('itemTypeActivity',
         'categoryWiseInventory',
         'inventorySummary',
         'departmentWiseInventory',
