@@ -37,7 +37,7 @@
                                                 <td>{{$measurement->is_active ? 'Yes' : 'No' }}</td>
                                                 <td>
                                                     <a href="#" class="text-primary">Edit</a>
-                                                    <a href="#" class="text-danger">Delete</a>
+                                                    <a href="{{route('delete_measurement',$measurement->measurement_id)}}" class="text-danger">Delete</a>
                                                 </td>   
                                             </tr>         
                                      @endforeach

@@ -20,10 +20,17 @@
                                 <div class="form-group">
                                     <label for="typeName">Type Name</label>
                                     <input type="text"  class="form-control" id="typeName" name="typeName" placeholder="Enter type name" required>
+                                     @error('typeName')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+
                                 </div>
                                 <div class="form-group">
                                     <label for="typeCode">Type Code</label>
                                     <input type="text" class="form-control" id="typeCode" name="typeCode" placeholder="Enter type code" required>
+                                     @error('typeCode')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group">
@@ -42,6 +49,9 @@
                                         <option value="1" selected>Active</option>
                                         <option value="0">Inactive</option>
                                     </select>
+                                      @error('isActive')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <button type="submit" class="btn btn-primary">Add Item Type</button>
                             </form>

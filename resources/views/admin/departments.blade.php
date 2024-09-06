@@ -17,14 +17,20 @@
                         <div class="card">
 
                             <div class="card-body shadow">
-                                <form id="addDepartmentForm" action="{{route('setDepartments')}}" method="POST">
-                                    @csrf
-                                    <div class="form-group">
-                                        <label for="departmentName">Department Name</label>
-                                        <input type="text" class="form-control" id="departmentName" name="departmentName" placeholder="Enter department name" required>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Add Department</button>
-                                </form>
+                               <form id="addDepartmentForm" action="{{ route('setDepartments') }}" method="POST">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="departmentName">Department Name</label>
+                                            <input type="text" class="form-control @error('departmentName') is-invalid @enderror" 
+                                                   id="departmentName" name="departmentName" placeholder="Enter department name" required>
+                                                   
+                                            @error('departmentName')
+                                            <div class="invalid-feedback" style="color:red;">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Add Department</button>
+                                    </form>
+
                             </div>
                         </div>
                     </div>

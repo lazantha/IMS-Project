@@ -11,22 +11,18 @@ use App\Http\Controllers\GridController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\PrintController;
 
-
 Route::get('/', [HomeController::class, 'home'])->name('home-page');
 Route::get('templates/contact', [ContactController::class, 'contact'])->name('contact-page');
 Route::get('templates/about', [AboutController::class, 'about'])->name('about-page');
-
-
+//login and register routes
 Route::get('templates/register', [AdminController::class, 'register'])->name('register');
 Route::get('templates/login', [AdminController::class, 'login'])->name('login');
 
 Route::post('templates/login.post', [AdminController::class, 'login_post'])->name('login.post');
 Route::post('templates/register.post', [AdminController::class, 'register_post'])->name('register.post');
-
+//......................................................................................................
 Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
-
 // admin pages
-
 Route::get('templates/dashboard', [AdminController::class, 'stat_view'])->name('admin-stat');
 Route::get('templates/master_view', [AdminController::class, 'master_view'])->name('master_view');
 Route::get('templates/admins', [AdminController::class, 'admins'])->name('admin-admins');
@@ -40,28 +36,31 @@ Route::get('templates/item_types', [AdminController::class, 'item_types'])->name
 Route::post('templates/post_item_types', [AdminController::class, 'post_item_types'])->name('post_item_types');
 Route::get('templates/measurements', [AdminController::class, 'measurements'])->name('admin-measurements');
 Route::post('templates/post_measurements', [AdminController::class, 'post_measurements'])->name('post_measurements');
-
 // grid routes
+// 
 Route::get('templates/category_grid', [GridController::class, 'category_grid'])->name('admin-category-grid');
 Route::get('templates/department_grid', [GridController::class, 'department_grid'])->name('admin-department-grid');
 Route::get('templates/item_type_grid', [GridController::class, 'item_type_grid'])->name('admin-item_type-grid');
 Route::get('templates/main_master_grid', [GridController::class, 'main_master_grid'])->name('admin-main_master-grid');
 Route::get('templates/measurement_grid', [GridController::class, 'measurement_grid'])->name('admin-measurement-grid');
-
 // edit routes
+// create item type edit route
+// create measurement edir route
 Route::get('templates/edit_category/{cat_id}', [GridController::class, 'edit_category'])->name('edit_category');
 Route::put('templates/update_category/{cat_id}', [GridController::class, 'update_category'])->name('update_category');
-
 Route::get('templates/edit_department/{dep_id}', [GridController::class, 'edit_department'])->name('edit_department');
 Route::put('templates/update_department/{dep_id}', [GridController::class, 'update_department'])->name('update_department');
-
 Route::get('templates/edit_item/{item_id}', [GridController::class, 'edit_item'])->name('edit_item');
 Route::put('templates/update_item/{item_id}', [GridController::class, 'update_item'])->name('update_item');
-
 //delete routes
+
 Route::get('templates/delete_category/{cat_id}', [GridController::class, 'delete_category'])->name('delete_category');
 Route::get('templates/delete_department/{cat_id}', [GridController::class, 'delete_department'])->name('delete_department');
 Route::get('templates/delete_item/{item_id}', [GridController::class, 'delete_item'])->name('delete_item');
+Route::get('templates/delete_type/{type_id}',[GridController::class,'delete_item_type'])->name('delete_type');
+
+Route::get('templates/delete_measurement/{measure_id}',[GridController::class,'delete_measurement'])->name('delete_measurement');
+
 
 // reports
 Route::get('templates/reports', [ReportController::class, 'reportsView'])->name('reports-view');

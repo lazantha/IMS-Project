@@ -181,6 +181,18 @@ class GridController extends Controller
 
     }
 
+    public function delete_item_type($type_id){
+        ItemType::where('type_id',$type_id)->delete();
+        return redirect()->route('admin-item_type-grid')->with('success', 'Item Deleted successfully');
+
+    }
+
+    public function delete_measurement($measure_id){
+        Measurement::where('measurement_id',$measure_id)->delete();
+        return redirect()->route('admin-measurement-grid')->with('success', 'Item Deleted successfully');
+        
+    }
+
 
     
 

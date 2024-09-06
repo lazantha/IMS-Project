@@ -22,10 +22,17 @@
                                 <div class="form-group">
                                     <label for="categoryName">Category Name</label>
                                     <input type="text" name="categoryName" class="form-control" id="categoryName" name="categoryName" placeholder="Enter category name(Consumable/Capital..)" required>
+                                      @error('categoryName')
+                                    <div class="error-message" style="color:red;">{{ $message }}</div>
+                                    @enderror
+
                                 </div>
                                 <div class="form-group">
                                     <label for="categoryCode">Category Code</label>
                                     <input type="text" name="categoryCode" class="form-control" id="categoryCode" name="categoryCode" placeholder="Enter category code" required>
+                                     @error('categoryCode')
+                                    <div class="error-message" style="color:red;">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="isActive">Status</label>
@@ -33,6 +40,9 @@
                                         <option value="1" selected>Active</option>
                                         <option value="0">Inactive</option>
                                     </select>
+                                     @error('isActive')
+                                    <div class="error-message" style="color:red;">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <button type="submit" class="btn btn-primary">Add Category</button>
                             </form>
