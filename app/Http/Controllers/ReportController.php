@@ -55,6 +55,7 @@ class ReportController extends Controller
         ->join('admins', 'item_master.admin_id', '=', 'admins.admin_id')
         ->select('item_master.*', 'item_types.type_name', 'measurements.name as measurement', 'departments.department', 'admins.first_name', 'admins.last_name')
         ->get();
+        
 
     
 

@@ -36,6 +36,28 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <tbody>
+                                        <!-- Loop through item master records and display here -->
+                                        @foreach ($detailedItems as $item)
+                                            <tr>
+                                                <td>{{ $item->item_master_id }}</td>
+                                                <td>{{ $item->item }}</td>
+                                                <td>{{ $item->item_code }}</td>
+                                                <td>{{ $item->quantity }}</td>
+                                                <td>{{ $item->manufacturer }}</td>
+                                                <td>{{ $item->itemType ? $item->itemType : 'N/A' }}</td> <!-- Make sure to use the correct alias -->
+                                                <td>{{ $item->measurement }}</td> <!-- Measurement code -->
+                                                <td>{{ $item->department }}</td>
+                                                <td>{{ $item->is_disposable ? 'Yes' : 'No' }}</td>
+                                                <td>{{ $item->is_active ? 'Yes' : 'No' }}</td>
+                                                <td>
+                                                    <a href="{{ route('edit_item', $item->item_master_id) }}" class="text-primary">Edit</a>
+                                                    <a href="{{ route('delete_item', $item->item_master_id) }}" class="text-danger">Remove</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                {{--
                                     <!-- Loop through item master records and display here -->
                                     @foreach ($items as $item)
                                         <tr>
@@ -44,7 +66,8 @@
                                             <td>{{ $item->item_code }}</td>
                                             <td>{{ $item->quantity }}</td>
                                             <td>{{ $item->manufacturer }}</td>
-                                            <td>{{ $item->itemType->type_name }}</td>
+                                            <td>{{ $item->itemType ? $itemMaster->itemType->type_name : 'N/A' }}</td>
+
                                             <td>{{ $item->measurement->code }}</td>
                                             <td>{{ $item->department->department }}</td>
                                             <td>{{ $item->is_disposable ? 'Yes' : 'No' }}</td>
@@ -55,7 +78,7 @@
                                             </td>
                                         </tr>
                                     @endforeach
-                                </tbody>
+                                </tbody> --}}
                             </table>
                         </div>
                     </div>

@@ -15,17 +15,29 @@
                 <div class="col-md-8 offset-md-2">
                     <div class="card">
                         <div class="card-body shadow">
-                            <form action="{{route('post_measurements')}}" method="POST">
+                           <form action="{{ route('post_measurements') }}" method="POST">
                                 @csrf
                                 
                                 <div class="form-group">
                                     <label for="measurementName">Measurement Name</label>
-                                    <input type="text" class="form-control" id="measurementName" name="measurementName" placeholder="Enter measurement name" required>
+                                    <input type="text" class="form-control @error('measurementName') is-invalid @enderror" id="measurementName" name="measurementName" placeholder="Enter measurement name" required>
+                                    @error('measurementName')
+                                    <div class="invalid-feedback" style="color: red;">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
+
                                 <div class="form-group">
                                     <label for="measurementCode">Measurement Code</label>
-                                    <input type="text" class="form-control" id="measurementCode" name="measurementCode" placeholder="Enter measurement code" required>
+                                    <input type="text" class="form-control @error('measurementCode') is-invalid @enderror" id="measurementCode" name="measurementCode" placeholder="Enter measurement code" required>
+                                    @error('measurementCode')
+                                    <div class="invalid-feedback" style="color: red;">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
+
                                 <div class="form-group">
                                     <label for="isActive">Status</label>
                                     <select class="form-control" id="isActive" name="isActive">
@@ -33,7 +45,10 @@
                                         <option value="0">Inactive</option>
                                     </select>
                                 </div>
+
                                 <button type="submit" class="btn btn-primary">Add Measurement</button>
+                            </form>
+
                             </form>
                         </div>
                     </div>

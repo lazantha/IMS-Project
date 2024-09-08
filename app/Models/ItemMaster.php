@@ -4,16 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ItemMaster extends Model
 {
-    use HasFactory;
+    use HasFactory,SoftDeletes;
     protected $table = 'item_master';
     protected $primaryKey = 'item_master_id';
 
     public function itemType()
     {
-        return $this->belongsTo(ItemType::class, 'item_type_id', 'type_id');
+        return $this->belongsTo(ItemType::class, 'type_id', 'type_id');
     }
 
     public function measurement()

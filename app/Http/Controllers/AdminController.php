@@ -187,7 +187,7 @@ public function register()
     {
         // Validate the request input
         $validatedData = $request->validate([
-            'categoryName' => 'required|string|regex:/^[A-Za-z\s]+$/|max:10',
+            'categoryName' => 'required|string|regex:/^[A-Za-z\s]+$/|min:5',
             'categoryCode' => 'required|string|regex:/^[A-Za-z]+[A-Za-z0-9]*$/|max:10',
             'isActive' => 'nullable|boolean'
 
@@ -222,7 +222,7 @@ public function register()
     {
         // Corrected validation syntax
         $validatedData = $request->validate([
-            'departmentName' => 'required|string|regex:/^[A-Za-z\s]+$/|max:10'
+            'departmentName' => 'required|string|regex:/^[A-Za-z\s]+$/|max:30|min:5'
         ]);
 
         // If validation passes, proceed to create the department
@@ -259,7 +259,7 @@ public function register()
         // Validate the request inputs
         $validatedData = $request->validate([
             'itemName' => 'required|string|min:4|max:20',
-            'itemCode' => 'required|string|regex:/^[A-Za-z]+[A-Za-z0-9]{3,5}$/|max:6|min:4',
+            'itemCode' => 'required|string|regex:/^[A-Za-z]+[A-Za-z0-9]{3,5}$/|max:20|min:4',
             'quantity' => 'required|integer|min:1',
             'manufacturer' => 'required|string|max:50',
             'isDisposable' => 'nullable|boolean',
@@ -281,7 +281,6 @@ public function register()
         $new_item->measure_id = $measure_id;
         $new_item->admin_id = $admin_id;
         $new_item->dep_id = $dep_id;
-
         $new_item->item = $validatedData['itemName'];
         $new_item->item_code = $validatedData['itemCode'];
         $new_item->quantity = $validatedData['quantity'];
@@ -313,7 +312,7 @@ public function register()
 
         $validatedData = $request->validate([
             'typeName' => 'required|string|regex:/^[A-Za-z0-9\s]+$/|min:5|max:20',
-            'typeCode' => 'required|string|regex:/^[A-Za-z0-9]+$/|min:8|max:10',
+            'typeCode' => 'required|string|regex:/^[A-Za-z0-9]+$/|min:5|max:10',
             'category' => 'required|string',
             'isActive' => 'nullable|boolean',
         ]);
@@ -344,18 +343,23 @@ public function register()
         }
     }
 
-    public function post_measurements(Request $request){
+   public function post_measurements(Request $request)
+    {
+        $validatedData = $request->validate([
+            'measurementName' => 'required|string|regex:/^[A-Za-z]+$/|max:10',
+            'measurementCode' => 'required|string|',
+            'isActive' => 'nullable|boolean',
+        ]);
 
-        $new_measure= new Measurement();
-
-        $new_measure->name=$request->measurementName;
-        $new_measure->code=$request->measurementCode;
-        $new_measure->is_active=$request->isActive;
+        $new_measure = new Measurement();
+        $new_measure->name = $validatedData['measurementName'];
+        $new_measure->code = $validatedData['measurementCode'];
+        $new_measure->is_active = $validatedData['isActive'] ?? 0; 
 
         $new_measure->save();
-        return redirect('templates/measurements')->with('success','New Measurement added successfully');
 
-
+        return redirect('templates/measurements')->with('success', 'New Measurement added successfully');
     }
+
 
 }
