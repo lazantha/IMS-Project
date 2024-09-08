@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-5Zsb8+YW91bgrVFvfT3vzLgzS4g6JWw5/DL1+rrFdoQ0EJHPU3tVdrh+Qk8ZqBfsNH4cJVKCHUTGZ1sDgkXnFg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <title>@yield('title')</title>
+    <!-- In your Blade template, typically in the `<head>` section -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     <style>
       .disable-pseudo-classes {
         all: initial;
@@ -18,7 +21,9 @@
     </style>
 </head>
 <body>
-
+  <div id="loading-spinner">
+    <div class="spinner"></div>
+</div>
     <header>
         <nav class="navbar navbar-expand-lg  bg-danger-subtle position-static">
             <div class="container-fluid ms-5">
@@ -67,6 +72,8 @@
 
 
     @yield('scripts')
+    <script src="{{ asset('js/app.js') }}"></script>
+
 
 </body>
 </html>
