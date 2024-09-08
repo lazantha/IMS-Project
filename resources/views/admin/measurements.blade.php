@@ -47,6 +47,7 @@
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Add Measurement</button>
+                                <a href="{{route('admin-item_master')}}" class="btn btn-success">Insert Items</a>
                             </form>
 
                             </form>

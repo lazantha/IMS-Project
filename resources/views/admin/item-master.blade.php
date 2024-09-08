@@ -137,7 +137,10 @@
     </div>
 
     <div class="form-group">
+        <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
+
         <button type="submit" class="btn btn-primary">Add Item</button>
+        <a href="{{route('admin-main_master-grid')}}" class="btn btn-success">View Items</a>
     </div>
 </form>
 

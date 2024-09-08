@@ -29,6 +29,7 @@
                                             @enderror
                                         </div>
                                         <button type="submit" class="btn btn-primary">Add Department</button>
+                                        <a href="{{route('admin-item_types')}}" class="btn btn-success">Next</a>
                                     </form>
 
                             </div>

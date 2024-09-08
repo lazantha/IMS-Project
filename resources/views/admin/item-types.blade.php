@@ -64,6 +64,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary">Add Item Type</button>
+                            <a href="{{route('admin-measurements')}}" class="btn btn-success">Next</a>
                         </form>
 
                         </div>
