@@ -1,4 +1,5 @@
 @extends('templates.master')
+
 @section('title', 'Item Grid')
 @section('content')
 
@@ -8,11 +9,18 @@
         <div class="col-md-3 mt-4">
             @include('admin.base')
         </div>
-
+        
         <!-- Main Content Column -->
         <div class="col-md-9 mt-4">
             <div class="container-fluid">
                 <h1 class="text-center mb-4">Manage Item Master</h1>
+                <form class="d-flex search-form mb-4" role="search" method="GET" action="{{ route('admin-main_master-grid') }}" >
+                    <input class="form-control search-input w-25 me-2" value=" " name="search" type="search" placeholder="Find by Item Name" value="{{ request()->query('search') }}" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <a href="{{route('admin-main_master-grid')}}" class="btn btn-outline-success">Get All</a>
+                
+                </form>
+                
                 <div class="card">
                     <div class="card-header">
                         Item Master

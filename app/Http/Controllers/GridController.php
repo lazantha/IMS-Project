@@ -57,31 +57,35 @@ class GridController extends Controller
 
     }
 
-    public function main_master_grid(){
+    public function main_master_grid(Request $request)
+    {
+        $query = \DB::table('item_master')
+            ->join('item_types', 'item_master.item_type_id', '=', 'item_types.type_id')
+            ->join('measurements', 'item_master.measure_id', '=', 'measurements.measurement_id')
+            ->join('departments', 'item_master.dep_id', '=', 'departments.dep_id')
+            ->join('admins', 'item_master.admin_id', '=', 'admins.admin_id')
+            ->select(
+                'item_master.*', 
+                'item_types.type_name as itemType', 
+                'measurements.code as measurement', 
+                'departments.department', 
+                'admins.first_name', 
+                'admins.last_name'
+            )
+            ->whereNull('item_master.deleted_at'); // Ensure only non-deleted items are shown
 
+        // Apply search filter if a search term is provided
+        if ($request->has('search') && !empty($request->search)) {
+            $query->where('item_master.item', 'like', '%' . $request->search . '%');
+        }
 
-        // $items = ItemMaster::with(['itemType', 'measurement', 'department'])->get();
-        // return view('admin.grids.main_master_grid',compact('items'));
-        $detailedItems = \DB::table('item_master')
-        ->join('item_types', 'item_master.item_type_id', '=', 'item_types.type_id')
-        ->join('measurements', 'item_master.measure_id', '=', 'measurements.measurement_id')
-        ->join('departments', 'item_master.dep_id', '=', 'departments.dep_id')
-        ->join('admins', 'item_master.admin_id', '=', 'admins.admin_id')
-        ->select(
-            'item_master.*', 
-            'item_types.type_name as itemType', 
-            'measurements.code as measurement', 
-            'departments.department', 
-            'admins.first_name', 
-            'admins.last_name'
-        )
-        ->whereNull('item_master.deleted_at')
-        ->get();
+        // Fetch the items
+        $detailedItems = $query->get();
 
-         return view('admin.grids.main_master_grid',compact('detailedItems'));
-
-
+        // Return the view with the data
+        return view('admin.grids.main_master_grid', compact('detailedItems'));
     }
+
     public function measurement_grid(){
 
         $measurements = Measurement::select('measurement_id', 'name','code', 'is_active')->whereNull('deleted_at')->get();

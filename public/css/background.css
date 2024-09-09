@@ -1,0 +1,14 @@
+/* Specific background image for the homepage only */
+.homepage-background {
+    background-image: url('/images/background.jpg'); /* Path to the image */
+    background-color: white;
+    background-size: contain; /* Ensures the entire image fits within the container */
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 50vh; /* Small size (adjustable) */
+    width: 50vh; /* Small size (adjustable) */
+    display: flex; /* For centering the background */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin: 0 auto; /* To center the container */
+}
