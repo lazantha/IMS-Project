@@ -1,6 +1,6 @@
 /* Specific background image for the homepage only */
 .homepage-background {
-    background-image: url('/images/background.jpg'); /* Path to the image */
+    background-image: url('/images/background2.jpg'); /* Path to the image */
     background-color: white;
     background-size: contain; /* Ensures the entire image fits within the container */
     background-position: center;

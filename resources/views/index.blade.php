@@ -10,6 +10,8 @@
     </blockquote>
     <figcaption class="blockquote-footer">
       IMS <cite title="Source Title text-capitalize">(Inventory Management System)</cite>
+      <br>
+      <em class="fs-6">University of Peradeniya</em>
     </figcaption>
   </figure>
   <div class="homepage-background">
