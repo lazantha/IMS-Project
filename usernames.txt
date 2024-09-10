@@ -1,2 +1,14 @@
 usernanme:sample
 email :sampleName@gmail.com
+
+start docker container
+
+docker-compose up-d
+
+
+
+
+if any change 
+docker-compose down
+docker-compose build
+docker-compose up -d

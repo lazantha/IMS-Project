@@ -2,12 +2,23 @@
 @section('Category Grid')
 @section('content')
 
-<a href="{{route('master_view')}}" class="ms-5 mt-5 btn btn-primary btn-sm">Back</a> | <a href="{{route('print')}}" class="btn btn-info btn-sm mt-5">Print</a>
+
+{{-- <a href="{{ route('export_report', ['format' => 'pdf']) }}" class="btn btn-danger btn-sm mt-5">Export PDF</a>
+<a href="" class="btn btn-warning btn-sm mt-5">Export Excel</a> --}}
+
 <div class="container text-center shadow">
     <div class="row">
       <div class="col-md-3 mt-4 ms-0">
        {{-- @include('admin.base') --}}
       </div>
+      {{--  --}}
+      <form method="GET" action="{{ route('generate_report') }}" class="d-flex mb-4">
+        <input type="text" name="search" class="form-control me-2" placeholder="Search by Item Name" value="{{ request('search') }}">
+        <input type="date" name="start_date" class="form-control me-2" placeholder="Start Date" value="{{ request('start_date') }}">
+        <input type="date" name="end_date" class="form-control me-2" placeholder="End Date" value="{{ request('end_date') }}">
+        <button class="btn btn-primary" type="submit">Filter</button>
+    </form>
+
       <div class="col">
         <div class="container mt-4">
             <h5 >Inventory Summary Report</h5 >

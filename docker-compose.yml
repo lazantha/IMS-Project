@@ -8,13 +8,20 @@ services:
     container_name: laravel-app
     restart: unless-stopped
     ports:
-      - "8000:8000"
+      - "8000:9000" # Make sure the exposed port of your PHP-FPM (9000) matches here
     volumes:
       - .:/var/www
     networks:
       - laravel-network
     depends_on:
       - db
+    environment:
+      - DB_CONNECTION=mysql
+      - DB_HOST=db
+      - DB_PORT=3307
+      - DB_DATABASE=mis_proto
+      - DB_USERNAME=root
+      - DB_PASSWORD= # If you decide to set a password, make sure it matches here
 
   db:
     image: mysql:8.0
@@ -23,8 +30,8 @@ services:
     environment:
       MYSQL_DATABASE: mis_proto
       MYSQL_USER: root
-      MYSQL_PASSWORD: 
-      MYSQL_ROOT_PASSWORD: 
+      MYSQL_PASSWORD: root@ims_password
+      MYSQL_ROOT_PASSWORD: # Set a root password if needed
     volumes:
       - dbdata:/var/lib/mysql
     ports:

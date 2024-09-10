@@ -1,20 +1,16 @@
 @extends('templates.master')
 @section('Category Grid')
 @section('content')
+
 <style>
+ <style>
     @media print {
         body {
             font-family: Arial, sans-serif;
         }
     }
 </style>
-<script>
-    window.onload = function() {
-        window.print();
-    };
-</script>
 
-<a href="{{route('master_view')}}" class="ms-5 mt-5 btn btn-primary btn-sm">Back</a>  <a href="{{route('print')}}" class="btn btn-info btn-sm mt-5">Print</a>
 <div class="container text-center shadow">
     <div class="row">
       <div class="col-md-3 mt-4 ms-0">

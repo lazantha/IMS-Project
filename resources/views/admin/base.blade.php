@@ -190,7 +190,7 @@
               </ul>
           </div>
           <div class="container">
-              <a href="{{route('reports-view')}}" id="get_start_link" class="list-group-item list-group-item-action pb-4 mt-3">
+              <a href="{{route('generate_report')}}" id="get_start_link" class="list-group-item list-group-item-action pb-4 mt-3">
                   <i class="sidebar-icon bi bi-file-earmark-text"></i>Get Reports
               </a>
           </div>

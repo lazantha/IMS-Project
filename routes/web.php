@@ -69,7 +69,9 @@ Route::get('templates/delete_item/{item_id}', [GridController::class, 'delete_it
 Route::get('templates/delete_type/{type_id}',[GridController::class,'delete_item_type'])->name('delete_type');
 Route::get('templates/delete_measurement/{measure_id}',[GridController::class,'delete_measurement'])->name('delete_measurement');
 
-// reports
-Route::get('templates/reports', [ReportController::class, 'reportsView'])->name('reports-view');
-//print
-Route::get('templates/print', [PrintController::class, 'print'])->name('print');
+
+// Route::get('templates/reports', [ReportController::class, 'reportsView'])->name('reports-view');
+// Route::get('templates/print', [PrintController::class, 'print'])->name('print');
+
+Route::get('/generate-report', [ReportController::class, 'generateReport'])->name('generate_report');
+// Route::get('/export_report/{format}', [ReportController::class, 'exportReport'])->name('export_report');
